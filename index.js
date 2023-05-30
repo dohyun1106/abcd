@@ -1,48 +1,39 @@
 function MySlider1__init() {
-    var swiper = new Swiper(".my-slider-1 .swiper-container", {
-      slidesPerView: 1,
+    const swiper = new Swiper('.my-slider-1 .swiper-container' , {
       navigation: {
-        prevEl: ".my-slider-1__nav-button--left",
-        nextEl: ".my-slider-1__nav-button--right"
+        prevEl: '.my-slider-1__nav-button__left', 
+        nextEl: '.my-slider-1__nav-button__right'
       },
+      loop: true, 
       pagination: {
-        el: ".my-slider-1__pagination",
+        el:'.my-slider-1__pagination',
         clickable: true,
-        renderBullet: function (index, className) {
+        renderBullet: function(index, classMate) {
           const no = index + 1;
-          const url = "https://picsum.photos/id/" + no + "/100/100";
-          return (
-            '<div class="' +
-            className +
-            '"><img class="block" src="' +
-            url +
-            '"></div>'
-          );
+          const url = 'https://picsum.photos/id/' + no + '/100/100';
+          
+          return '<div class="' + classMate + '"><img class="block" src="' + url +'"></div>';
         }
-      },
-      loop: true
+      }
     });
   }
   
   MySlider1__init();
   
-  function ProdList__init() {
-    $(".prod-list > ul > li").each(function (i, node) {
+  function MySlider2__init() {
+    $('.my-slider-2 ul > li').each(function(i, node) {
       gsap.from(node, {
         duration: 1,
         x: 400,
         opacity: 0,
-        ease: "circ.out",
         scrollTrigger: {
-          start: "top 100%",
-          end: "top 70%",
+          scrub: true,
           trigger: node,
-          markers: true,
-          scrub: true
+          start: "top 100%",
+          end: "top 70%"
         }
       });
     });
   }
   
-  ProdList__init();
-  
+  MySlider2__init();
